@@ -3,7 +3,7 @@ import { AppBar, Container, Toolbar } from "@mui/material";
 import MenuComponent from '../MenuComponent/MenuComponent';
 import { Link } from "react-router-dom";
 import { PosterContext } from "../../components/Context/PosterContext";
-import Cartwidget from "../CartWidget/Cartwidget";
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';  
 
 
 const styles = {
@@ -48,14 +48,14 @@ const ResponsiveNavigation = () => {
         <Container maxWidth="1">
           <Toolbar disableGutters>
             <div style={styles.linksContainer}>
-              <Link to="/home" style={styles.linkButton}>
+              <Link to="/" style={styles.linkButton}>
                 Home
               </Link>
               <Link to="/store" style={styles.linkButton}>
                 Store
               </Link>
               <div style={{ display: 'flex', alignItems: 'center' }}>
-                <Link to="/categories" style={styles.linkButton}>
+                <Link to="/categories/:collections" style={styles.linkButton}>
                   <MenuComponent />
                 </Link>
               </div>
@@ -65,10 +65,12 @@ const ResponsiveNavigation = () => {
               <Link to="/shop" style={styles.linkButton}>
                 Shop
               </Link>
-            </div>
-            <div style={styles.cartContainer}>
-              <Cartwidget />
+              <div style={styles.cartContainer}>
+              <Link to="/cartcontent" style={styles.linkButton}>
+              <ShoppingCartIcon />
               <span style={styles.cartItemCount}>{items.length}</span>
+              </Link>
+            </div>
             </div>
           </Toolbar>
         </Container>

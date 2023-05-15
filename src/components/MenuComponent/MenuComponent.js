@@ -43,11 +43,11 @@ const MenuComponent = () => {
           horizontal: 'left',
         }}
       >
-      <MenuItem component={Link} to="/Menu-Collections/Art" onClick={handleClose}>Art</MenuItem>
-      <MenuItem component={Link} to="/Menu-Collections/Movies" onClick={handleClose}>Movies</MenuItem>
-      <MenuItem component={Link} to="/Menu-Collections/Music" onClick={handleClose}>Music</MenuItem>
-      <MenuItem component={Link} to="/Menu-Collections/Sports" onClick={handleClose}>Sports</MenuItem>
-      <MenuItem component={Link} to="/Menu-Collections/Misc" onClick={handleClose}>Misc</MenuItem>
+      <MenuItem component={Link} to="/categories/Art" onClick={handleClose}>Art</MenuItem>
+      <MenuItem component={Link} to="/categories/Movies" onClick={handleClose}>Movies</MenuItem>
+      <MenuItem component={Link} to="/categories/Music" onClick={handleClose}>Music</MenuItem>
+      <MenuItem component={Link} to="/categories/Sports" onClick={handleClose}>Sports</MenuItem>
+      <MenuItem component={Link} to="/categories/Misc" onClick={handleClose}>Misc</MenuItem>
       </Menu>
     </div>
   );

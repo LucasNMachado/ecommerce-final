@@ -25,10 +25,11 @@ const CardCollectionsDetail = ({dataPOSTERCARDDETAIL}) => {
             <Typography gutterBottom variant="h5" fontSize="10px" component="div">
             {dataPOSTERCARDDETAIL.price}
             </Typography>
-            <Button>Agregar al carrito</Button>
+           
           </CardContent>
          
         </CardActionArea>
+        <Button>Agregar al carrito</Button> 
       </Card>
     </div>
     

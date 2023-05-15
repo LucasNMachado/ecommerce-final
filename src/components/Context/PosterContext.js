@@ -1,22 +1,35 @@
-import React, { useState, createContext } from 'react';
+import React, { useState, useEffect, createContext } from 'react';
+import { db } from "../../firebase/firebaseConfig";
+import { collection, query, getDocs } from "firebase/firestore";
+
 export const PosterContext = createContext();
 
-const initialState = () => [
-  {
-    
-  },
-];
+const ItemsProvider = ({ children }) => {
+  const [items, setItems] = useState([]);
+  const [cart, setCart] = useState([]);
 
-export const ItemsProvider = ({ children }) => {
-  const [items, setItems] = useState ([initialState]);
+  useEffect(() => {
+    const getPosters = async () => {
+      const postersCollection = query(collection(db, 'posterscollection'));
+      const querySnapshot = await getDocs(postersCollection);
+      const docs = querySnapshot.docs.map((doc) => {
+        return { ...doc.data(), id: doc.id };
+      });
+      setItems(docs);
+    };
+
+    getPosters();
+  }, []);
+
+  const addToCart = (product) => {
+    setCart([...cart, product]);
+  };
 
   return (
-    <PosterContext.Provider value={{items, setItems}}>
-    {children}
+    <PosterContext.Provider value={{ items, cart, addToCart }}>
+      {children}
     </PosterContext.Provider>
-
-   
   );
-}
+};
 
-export default PosterContext
+export default ItemsProvider;
