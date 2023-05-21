@@ -11,7 +11,7 @@ import ResponsiveNavigation from "./components/ResponsiveNavigation/ResponsiveNa
 //Pages
 import Home from "./pages/Home/Home";
 import Store from "./pages/Store/Store";
-import Contact from "./pages/Contact/Contact";
+
 import ItemDetail from "./pages/ItemDetail/ItemDetail";
 import MenuCollections from "./pages/MenuCollections/MenuCollections";
 import Shop from "./pages/Shop/Shop";
@@ -29,7 +29,7 @@ return(
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/store" element={<Store />} />
-                <Route path="/contact" element={<Contact />} />
+               
                 <Route path="/detail/:id" element={<ItemDetail />} />
                 <Route path="/categories/:collections" element={<MenuCollections />} />
                 <Route path="/shop" element={<Shop />} />

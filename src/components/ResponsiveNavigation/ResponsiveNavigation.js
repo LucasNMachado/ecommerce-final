@@ -1,24 +1,23 @@
-import React, { useContext, useState, useEffect } from 'react';
-import { AppBar, Container, Toolbar } from "@mui/material";
+import React, { useContext, useEffect, useState } from 'react';
+import { AppBar, Container, Toolbar } from '@mui/material';
+import { Link } from 'react-router-dom';
+import { PosterContext } from '../../components/Context/PosterContext';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import MenuComponent from '../MenuComponent/MenuComponent';
-import { Link } from "react-router-dom";
-import { PosterContext } from "../../components/Context/PosterContext";
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';  
-
 
 const styles = {
   linkButton: {
-    textDecoration: "none",
-    color: "white",
+    textDecoration: 'none',
+    color: 'white',
     fontSize: 18,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     marginLeft: 10,
     marginRight: 10,
   },
   purchaseButton: {
-    color: "grey",
+    color: 'grey',
     fontSize: 18,
-    fontWeight: "bold",
+    fontWeight: 'bold',
   },
   linksContainer: {
     display: 'flex',
@@ -35,12 +34,12 @@ const styles = {
 };
 
 const ResponsiveNavigation = () => {
-  const {items} = useContext(PosterContext);
-  const [ cartItemCount, setCartItemCount] = useState(0);
+  const { cart } = useContext(PosterContext);
+  const [cartItemCount, setCartItemCount] = useState(0);
 
   useEffect(() => {
-    setCartItemCount(items.length);
-  }, [items]);
+    setCartItemCount(cart.length);
+  }, [cart]);
 
   return (
     <>
@@ -59,18 +58,15 @@ const ResponsiveNavigation = () => {
                   <MenuComponent />
                 </Link>
               </div>
-              <Link to="/contact" style={styles.linkButton}>
-                Contact
-              </Link>
               <Link to="/shop" style={styles.linkButton}>
                 Shop
               </Link>
               <div style={styles.cartContainer}>
-              <Link to="/cartcontent" style={styles.linkButton}>
-              <ShoppingCartIcon />
-              <span style={styles.cartItemCount}>{items.length}</span>
-              </Link>
-            </div>
+                <Link to="/cartcontent" style={styles.linkButton}>
+                  <ShoppingCartIcon />
+                  <span style={styles.cartItemCount}>{cartItemCount}</span>
+                </Link>
+              </div>
             </div>
           </Toolbar>
         </Container>

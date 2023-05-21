@@ -1,14 +1,9 @@
 import { useState, useEffect } from 'react'
 import React from 'react'
-//RRD
 import { useParams } from "react-router-dom";
-//Firebase
 import { db } from "../../firebase/firebaseConfig";
 import { collection, query, getDocs, where, documentId } from "firebase/firestore";
-//Components
-
 import CardCollectionsDetail from '../../components/CardCollections/CardCollectionsDetail';
-//CSS
 import "./ItemDetail.css"
 
 const ItemDetail = () => {

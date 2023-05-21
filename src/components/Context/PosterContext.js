@@ -1,6 +1,6 @@
 import React, { useState, useEffect, createContext } from 'react';
-import { db } from "../../firebase/firebaseConfig";
-import { collection, query, getDocs } from "firebase/firestore";
+import { db } from '../../firebase/firebaseConfig';
+import { collection, query, getDocs } from 'firebase/firestore';
 
 export const PosterContext = createContext();
 
@@ -25,8 +25,13 @@ const ItemsProvider = ({ children }) => {
     setCart([...cart, product]);
   };
 
+  const removeFromCart = (product) => {
+    const updatedCart = cart.filter((item) => item.id !== product.id);
+    setCart(updatedCart);
+  };
+
   return (
-    <PosterContext.Provider value={{ items, cart, addToCart }}>
+    <PosterContext.Provider value={{ items, cart, addToCart, removeFromCart }}>
       {children}
     </PosterContext.Provider>
   );
